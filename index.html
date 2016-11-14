@@ -29,7 +29,7 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 		<style type="text/css">
-			h2, h3, h4 {
+			h3, h4 {
 				text-transform: initial !important;
 			}
 
@@ -51,7 +51,7 @@
 			<div class="slides">
 				<section>
 					<h1>Front End</h1>
-					<h3></h3>
+					<h3>A super hot area this years all around the world.</h3>
 					<p>
 						<small>Created By <a href="https://github.com/jiubao">sxia</a> - <a href="https://github.com/jiubao">https://github.com/jiubao</a><br/>
               <!--
@@ -77,117 +77,54 @@
 
 				<section>
 					<section>
-						<h2>Let and Const</h2>
-						<p>Block-Scoped Constructs</p>
+						<h2>Welcome to front end</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Why front end?</h2>
 					</section>
 
 					<section>
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-function varTest() {
-  var x = 1;
-  if (true) {
-    var x = 2;  // same variable!
-    console.log(x);  // 2
-  }
-  console.log(x);  // 2
-}
-
-function letTest() {
-  let x = 1;
-  if (true) {
-    let x = 2;  // different variable
-    console.log(x);  // 2
-  }
-  console.log(x);  // 1
-} 
-              </code>
-            </pre>
+						<h4>CLI</h4>
+						<img src="img/cli.png">
           </section>
 
-          <section>
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-for (var i = 0; i < 5; i++) {
-	setTimeout(() => console.log(i), 1000);
-}
-
-for (let i = 0; i < 5; i++) {
-	setTimeout(() => console.log(i), 1000);
-}
-              </code>
-            </pre>
-					</section>
-
-          <section>
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-let a = 1;
-window.a //undefined
-
-console.log()
-              </code>
-            </pre>
-					</section>
+					<section>
+						<h4>GUI</h4>
+						<img src="img/gui.png">
+          </section>
 
 				</section>
 
 				<section>
 					<section>
-						<h2>Parameters</h2>
+						<h2>Where is Front End?</h2>
 					</section>
 
 					<section>
-						<h3>Default parameters</h3>
 
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-function fn(a, b) {
-  var b = (typeof b !== 'undefined') ?  b : '';
-  ...
-}
-
-function fn2(a, b = 1) {
-	...
-}
-
-fn2(1, undefined)
-fn2(1, null)
-              </code>
-            </pre>
+						<ol>
+							<li>gui</li>
+							<li>front end: html, css, js</li>
+							<li>front end service: nodejs, php, asp.net, jsp ...</li>
+							<li>service: java, c#, ... </li>
+							<li>database: oracle, sql server, my server, mango ...</li>
+						</ol>
 
 					</section>
 
 					<section>
-						<h3>Rest parameters</h3>
+						<h3>Overlooked</h3>
 
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-function fn(x, ...y) {
-	return x * y.length;
-}
-
-fn(2, "xxx", 3, {}); // 6
-
-              </code>
-            </pre>
+						<ul>
+							<li>Javascript is fulfilled by all kinds of mistakes.</li>
+							<li>Mercurial</li>
+						</ul>
 
 					</section>
 
-					<section>
-						<h3>Spread parameters</h3>
-
-            <pre>
-              <code class="hljs" data-trim contenteditable>
-function fn(x, y, z) {
-	return x + y + z;
-}
-
-fn(...[1,2,3]) // 6
-              </code>
-            </pre>
-
-					</section>
 				</section>
 
 				<section>
