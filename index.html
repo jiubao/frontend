@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ECMAScript 6</title>
+
+		<meta name="description" content="ECMAScript 6 ">
+		<meta name="author" content="sxia">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+			h2, h3, h4 {
+				text-transform: initial !important;
+			}
+
+			code {
+				background: transparent !important;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+ 
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>ECMAScript 6</h1>
+					<h3></h3>
+					<p>
+						<small>Created By <a href="https://github.com/jiubao">sxia</a> - <a href="https://github.com/jiubao">https://github.com/jiubao</a><br/>
+              <!--
+            <a href="http://www.movoto.com">sxia@movoto.com</a>
+          -->
+            </small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+            <li>Let and Const</li>
+						<li>Parameter - default, rest, spread</li>
+						<li>Destructuring assignment</li>
+            <li>Arrow function</li>
+						<li>Template literals (strings)</li>
+            <li>Literal object</li>
+            <li>Promise</li>
+            <li>Generator</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Let and Const</h2>
+						<p>Block-Scoped Constructs</p>
+					</section>
+
+					<section>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+function varTest() {
+  var x = 1;
+  if (true) {
+    var x = 2;  // same variable!
+    console.log(x);  // 2
+  }
+  console.log(x);  // 2
+}
+
+function letTest() {
+  let x = 1;
+  if (true) {
+    let x = 2;  // different variable
+    console.log(x);  // 2
+  }
+  console.log(x);  // 1
+} 
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+for (var i = 0; i < 5; i++) {
+	setTimeout(() => console.log(i), 1000);
+}
+
+for (let i = 0; i < 5; i++) {
+	setTimeout(() => console.log(i), 1000);
+}
+              </code>
+            </pre>
+					</section>
+
+          <section>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+let a = 1;
+window.a //undefined
+
+console.log()
+              </code>
+            </pre>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Parameters</h2>
+					</section>
+
+					<section>
+						<h3>Default parameters</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+function fn(a, b) {
+  var b = (typeof b !== 'undefined') ?  b : '';
+  ...
+}
+
+function fn2(a, b = 1) {
+	...
+}
+
+fn2(1, undefined)
+fn2(1, null)
+              </code>
+            </pre>
+
+					</section>
+
+					<section>
+						<h3>Rest parameters</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+function fn(x, ...y) {
+	return x * y.length;
+}
+
+fn(2, "xxx", 3, {}); // 6
+
+              </code>
+            </pre>
+
+					</section>
+
+					<section>
+						<h3>Spread parameters</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+function fn(x, y, z) {
+	return x + y + z;
+}
+
+fn(...[1,2,3]) // 6
+              </code>
+            </pre>
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Destructuring assignment</h2>
+					</section>
+
+					<section>
+						<h3>Array destructuring</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+              </code>
+            </pre>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var [a, b, c] = ['xx', 'yy', 'zz'];
+              </code>
+            </pre>
+					</section>
+
+					<section>
+						<h3>Object destructuring</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var {a, b, c} = {a: 'xd', b: '20', c: '180'};
+              </code>
+            </pre>
+
+					</section>
+				</section>
+
+
+        <section>
+
+	        <section>
+	          <h2>Arrow function</h2>
+	        </section>
+
+	        <section>
+	        	<h3>Syntax - basic</h3>
+
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+(param1, param2, …, paramN) => { statements }
+(param1, param2, …, paramN) => expression
+         // equivalent to:  => { return expression; }
+
+// Parentheses are optional when there's only one parameter:
+(singleParam) => { statements }
+singleParam => { statements }
+
+// A function with no parameters requires parentheses:
+() => { statements }
+              </code>
+            </pre>
+	        </section>
+
+	        <section>
+	        	<h3>Syntax - advance</h3>
+
+	        	<pre>
+	        		<code class="hljs" data-trim contenteditable>
+// Parenthesize the body to return an object literal expression:
+params => ({foo: bar})
+
+// Rest parameters and default parameters are supported
+(param1, param2, ...rest) => { statements }
+(param1 = defaultValue1, param2, …, paramN = defaultValueN) => { statements }
+
+// Destructuring within the parameter list is also supported
+var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
+f();  // 6	
+	        		</code>
+	        	</pre>
+	        </section>
+
+	        <section>
+	        	<h3>this?</h3>
+
+	        	<pre>
+	        		<code class="hljs" data-trim contenteditable>
+function Car1() {
+	this.wheels = 4;
+
+	setTimeout(function() {
+		console.log(this.wheels);
+	}, 1);
+}
+	        		</code>
+	        	</pre>
+
+	        	<pre>
+	        		<code class="hljs" data-trim contenteditable>
+function Car2() {
+	this.wheels = 4;
+
+	setTimeout(() => console.log(this.wheels), 1);
+}
+	        		</code>
+	        	</pre>
+	        	
+	        </section>
+
+        </section>
+
+				<section>
+          <section>
+  					<h2>Template literals</h2>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var a = 1, b = 2;
+`result is ${a + b}`
+
+`xxxxxx xxx xx
+yy y y yy
+zzzzzz`
+              </code>
+            </pre>
+          </section>
+				</section>
+
+				<section>
+  					<h2>Literal object</h2>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var name = 'shadow';
+var person = {
+	name,
+	eat() {
+		return 'eating...';
+	}
+};
+              </code>
+            </pre>
+				</section>
+
+				<section>
+					<section>
+	  				<h2>Promise</h2>
+	  				<p>The Promise object is used for asynchronous computations. A Promise represents a value which may be available now, or in the future, or never.</p>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+new Promise((resolve, reject) => { ... });	
+              </code>
+            </pre>
+  				</section>
+  				<section>
+	  				<h3>A Promise is in one of these states:</h3>
+	  				<ul>
+	  					<li> pending: initial state, not fulfilled or rejected. </li>
+	  					<li> fulfilled: meaning that the operation completed successfully. </li>
+	  					<li> rejected: meaning that the operation failed. </li>
+	  				</ul>
+  				</section>
+
+  				<section>
+  					<h3>Promise.all</h3>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var p1 = Promise.resolve(3);
+var p2 = 1337;
+var p3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, "foo");
+}); 
+
+Promise.all([p1, p2, p3]).then(values => { 
+  console.log(values); // [3, 1337, "foo"] 
+});
+              </code>
+            </pre>
+  				</section>
+
+  				<section>
+  					<h3>Promise.race</h3>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var p1 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 500, "one"); 
+});
+var p2 = new Promise(function(resolve, reject) { 
+    setTimeout(resolve, 100, "two"); 
+});
+
+Promise.race([p1, p2]).then(function(value) {
+  console.log(value); // "two"
+  // Both resolve, but p2 is faster
+});
+              </code>
+            </pre>
+  				</section>
+  				
+  				<section>
+  					<h3>Promise.prototype.then</h3>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+var p1 = new Promise(function(resolve, reject) {
+  resolve("Success!");
+  // or
+  // reject ("Error!");
+});
+
+p1.then(function(value) {
+  console.log(value); // Success!
+}, function(reason) {
+  console.log(reason); // Error!
+});
+              </code>
+            </pre>
+
+            chaining ...
+  				</section>
+  				
+  				<section>
+  					<h3>Promise.prototype.catch</h3>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+Promise.prototype.then(undefined, onRejected)
+              </code>
+            </pre>
+  				</section>
+				</section>
+
+				<section>
+          <section>
+					  <h2>Generator</h2>
+					  <p>The function* declaration (function keyword followed by an asterisk) defines a generator function, which returns a Generator object.</p>
+          </section>
+          <section>
+            <pre>
+              <code class="hljs" data-trim contenteditable>
+function* idMaker(){
+  var index = 0;
+  while(index < 3)
+    yield index++;
+}
+
+var gen = idMaker();
+
+console.log(gen.next()); // value: 0, done: false
+console.log(gen.next()); // value: 1, done: false
+console.log(gen.next()); // value: 2, done: false
+console.log(gen.next()); // value: undefined, done: true
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Run stop run</h3>
+            <blockquote>
+            	Generator is such a different function, which may be paused in the middle, one or multiple times, and resumed later, allowing other code to run during these paused periods.
+            </blockquote>
+            <ul>
+            	<li>only be paused inside itself</li>
+            	<li>only be resumed by external control</li>
+            	<li>process infinite loop</li>
+            	<li>be interpolated while running</li>
+            </ul>
+          </section>
+
+          <section>
+          	<h3>co</h3>
+          	<a href="https://github.com/tj/co">https://github.com/tj/co</a>
+          </section>
+				</section>
+
+				<section>
+					<h2>The End ?</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
